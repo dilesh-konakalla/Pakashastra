@@ -1,0 +1,39 @@
+[
+  {
+    "name": "npm install cors",
+    "ingredients": "h",
+    "procedure": "j"
+  },
+  {
+    "name": "pani puri ",
+    "ingredients": "pani puri ",
+    "procedure": "pani puri "
+  },
+  {
+    "name": "Lal Bhoplyacha Bharit (Red Pumpkin Raita) Recipe",
+    "ingredients": "200 Gram Red Pumpkin1 cup Thick Yogurt1-2 Green Chillies1/2 tsp Mustard SeedsPinch of Asafoetida5-6 Curry Leaves1/2 tsp Desi Ghee1/2 tsp Sugar1 tbsp Roasted GroundnutsSalt to Taste\n",
+    "procedure": "1.Chop the pumpkin into cubes and let them boil. Once soft, let the pieces cool and mash them well.2.Take a bowl of yoghurt and beat it well. Mix the mashed pumpkin. Add finely chopped green salt and sugar. Mix well.3.Preparing the tempering by heating ghee in a tadka pan and adding mustard seeds, curry leaves and asafoetida. Pour the tempering on the raita and mix again. Serve chilled.",
+    "category": "Healthy Recipes"
+  },
+  {
+    "name": "Lal Bhoplyacha Bharit (Red Pumpkin Raita) Recipe",
+    "ingredients": [
+      "200 Gram Red Pumpkin",
+      "1 cup Thick Yogurt",
+      "1-2 Green Chillies",
+      "1/2 tsp Mustard Seeds",
+      "Pinch of Asafoetida",
+      "5-6 Curry Leaves",
+      "1/2 tsp Desi Ghee",
+      "1/2 tsp Sugar",
+      "1 tbsp Roasted Groundnuts",
+      "Salt to Taste"
+    ],
+    "procedure": [
+      "Chop the pumpkin into cubes and let them boil. Once soft, let the pieces cool and mash them well.",
+      "Take a bowl of yoghurt and beat it well. Mix the mashed pumpkin. Add finely chopped green salt and sugar. Mix well.",
+      "Preparing the tempering by heating ghee in a tadka pan and adding mustard seeds, curry leaves and asafoetida. Pour the tempering on the raita and mix again. Serve chilled."
+    ],
+    "category": "Healthy Recipes"
+  }
+]
