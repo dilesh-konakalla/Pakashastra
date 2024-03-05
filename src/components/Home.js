@@ -6,6 +6,7 @@ import { Container, Box, Button, Typography } from '@mui/material';
 const Home = () => {
   const [recipes, setRecipes] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('');
+  const [selectedRecipe, setSelectedRecipe] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -42,6 +43,7 @@ const Home = () => {
     borderRadius: '8px',
     margin: '20px',
     textAlign: 'left',
+    cursor: 'pointer',
   };
 
   const categoryOptions = [
@@ -59,21 +61,21 @@ const Home = () => {
 
   const handleCategoryClick = (category) => {
     setSelectedCategory(category);
+    setSelectedRecipe(null);
   };
 
-  const renderRecipe = (recipe) => (
-    <Box key={recipe.name} style={boxStyle}>
+  const handleRecipeClick = (recipe) => {
+    setSelectedRecipe(recipe);
+  };
+
+  const renderRecipeName = (recipe) => (
+    <Box
+      key={recipe.name}
+      style={boxStyle}
+      onClick={() => handleRecipeClick(recipe)}
+    >
       <Typography variant="h5" gutterBottom>
         {recipe.name}
-      </Typography>
-      <Typography variant="body1" paragraph>
-        <strong>Ingredients:</strong> {Array.isArray(recipe.ingredients) ? recipe.ingredients.join(', ') : 'N/A'}
-      </Typography>
-      <Typography variant="body1" paragraph>
-        <strong>Procedure:</strong> {Array.isArray(recipe.procedure) ? recipe.procedure.join(', ') : 'N/A'}
-      </Typography>
-      <Typography variant="body2">
-        <strong>Category:</strong> {recipe.category}
       </Typography>
     </Box>
   );
@@ -108,8 +110,25 @@ const Home = () => {
 
       {/* Center the Container */}
       <Container style={{ ...containerStyle, margin: '0 auto' }}>
-        {/* Display recipes based on the selected category */}
-        {filteredRecipes.map(renderRecipe)}
+        {/* Display recipe names or full recipe details based on selection */}
+        {selectedRecipe ? (
+          <Box style={boxStyle}>
+            <Typography variant="h4" gutterBottom>
+              {selectedRecipe.name}
+            </Typography>
+            <Typography variant="body1" paragraph>
+              <strong>Ingredients:</strong> {Array.isArray(selectedRecipe.ingredients) ? selectedRecipe.ingredients.join(', ') : 'N/A'}
+            </Typography>
+            <Typography variant="body1" paragraph>
+              <strong>Procedure:</strong> {Array.isArray(selectedRecipe.procedure) ? selectedRecipe.procedure.join(', ') : 'N/A'}
+            </Typography>
+            <Typography variant="body2">
+              <strong>Category:</strong> {selectedRecipe.category}
+            </Typography>
+          </Box>
+        ) : (
+          filteredRecipes.map(renderRecipeName)
+        )}
       </Container>
     </div>
   );
