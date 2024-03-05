@@ -4,7 +4,7 @@ import { AppBar, Toolbar, Typography, styled } from '@mui/material';
 const StyledAppBar = styled(AppBar)(({ theme }) => ({
   backgroundColor: 'rgba(0, 0, 0, 0)',
   boxShadow: 'none',
-  borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
+ 
 }));
 
 const Container = styled('div')({

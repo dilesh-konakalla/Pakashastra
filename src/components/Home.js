@@ -28,10 +28,11 @@ const Home = () => {
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     height: '100vh',
+    overflow: 'hidden', // Hide any potential content overflow
   };
 
   const containerStyle = {
-    backgroundColor: 'rgba(255, 255, 255, 0.7)',
+    backgroundColor: 'rgba(255, 255, 255, 0)',
     overflowY: 'auto',
     borderRadius: '8px',
     margin: '20px',
@@ -46,6 +47,20 @@ const Home = () => {
     textAlign: 'left',
     cursor: 'pointer',
   };
+
+  const customScrollbarStyle = `
+    ::-webkit-scrollbar {
+      width: 0.5em;
+    }
+
+    ::-webkit-scrollbar-track {
+      background-color: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: transparent; // Set the thumb color to transparent
+    }
+  `;
 
   const categoryOptions = [
     '',
@@ -129,20 +144,9 @@ const Home = () => {
   return (
     <div style={backgroundStyle}>
       <Header />
+      <p></p>
       <Navbar />
-      <div style={{ font: 'Serif', backgroundColor: 'rgba(255, 255, 255, 0.1)', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        <Typography variant="h2" gutterBottom>
-          Welcome to Pakashastra
-        </Typography>
-        {/* Display search input */}
-        <TextField
-          label="Search Recipes"
-          variant="outlined"
-          value={searchTerm}
-          onChange={handleSearchChange}
-          style={{ width: '70%', margin: '10px' }}
-        />
-      </div>
+      <p></p>
 
       {/* Display category buttons */}
       <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '10px' }}>
@@ -151,11 +155,18 @@ const Home = () => {
             key={category}
             variant="contained"
             onClick={() => handleCategoryClick(category)}
-            style={{ font: 'didot', margin: '5px', backgroundColor: '#ff8409', padding: '10px' }}
+            style={{ font: 'didot', margin: '10px', backgroundColor: 'rgb(1, 127, 42)', padding: '10px' }}
           >
             {category || 'All'}
           </Button>
         ))}
+        <TextField
+          label="Search Recipes"
+          variant="outlined"
+          value={searchTerm}
+          onChange={handleSearchChange}
+          style={{ width: '10%', margin: '10px', Color: "#b1d176" }}
+        />
       </div>
 
       {/* Center the Container */}
@@ -163,6 +174,9 @@ const Home = () => {
         {/* Display recipe names or full recipe details based on selection */}
         {selectedRecipe ? renderFullRecipe() : filteredRecipes.map(renderRecipeName)}
       </Container>
+
+      {/* Custom CSS for hiding scrollbar */}
+      <style>{customScrollbarStyle}</style>
     </div>
   );
 };
