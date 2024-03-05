@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import Header from './header';
 import Navbar from './Navbar';
-import { Container, Box, Button, Typography } from '@mui/material';
+import { Container, Box, Button, Typography, TextField } from '@mui/material';
 
 const Home = () => {
   const [recipes, setRecipes] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('');
   const [selectedRecipe, setSelectedRecipe] = useState(null);
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {
@@ -68,6 +69,16 @@ const Home = () => {
     setSelectedRecipe(recipe);
   };
 
+  const handleSearchChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
+  const filteredRecipes = recipes.filter((recipe) => {
+    const isInCategory = !selectedCategory || recipe.category === selectedCategory;
+    const matchesSearch = recipe.name.toLowerCase().includes(searchTerm.toLowerCase());
+    return isInCategory && matchesSearch;
+  });
+
   const renderRecipeName = (recipe) => (
     <Box
       key={recipe.name}
@@ -115,18 +126,22 @@ const Home = () => {
     </Box>
   );
 
-  const filteredRecipes = selectedCategory
-    ? recipes.filter((recipe) => recipe.category === selectedCategory)
-    : recipes;
-
   return (
     <div style={backgroundStyle}>
       <Header />
       <Navbar />
-      <div style={{ font: 'Serif', backgroundColor: 'rgba(255, 255, 255, 0.1)', textAlign: 'center' }}>
+      <div style={{ font: 'Serif', backgroundColor: 'rgba(255, 255, 255, 0.1)', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <Typography variant="h2" gutterBottom>
           Welcome to Pakashastra
         </Typography>
+        {/* Display search input */}
+        <TextField
+          label="Search Recipes"
+          variant="outlined"
+          value={searchTerm}
+          onChange={handleSearchChange}
+          style={{ width: '70%', margin: '10px' }}
+        />
       </div>
 
       {/* Display category buttons */}
