@@ -80,6 +80,41 @@ const Home = () => {
     </Box>
   );
 
+  const renderFullRecipe = () => (
+    <Box style={boxStyle}>
+      <Typography variant="h4" gutterBottom>
+        {selectedRecipe.name}
+      </Typography>
+      <Typography variant="body1" paragraph>
+        <strong>Ingredients:</strong>
+        <ul>
+          {Array.isArray(selectedRecipe.ingredients) ? (
+            selectedRecipe.ingredients.map((ingredient, index) => (
+              <li key={index}>{ingredient}</li>
+            ))
+          ) : (
+            <li>N/A</li>
+          )}
+        </ul>
+      </Typography>
+      <Typography variant="body1" paragraph>
+        <strong>Procedure:</strong>
+        <ol>
+          {Array.isArray(selectedRecipe.procedure) ? (
+            selectedRecipe.procedure.map((step, index) => (
+              <li key={index}>{step}</li>
+            ))
+          ) : (
+            <li>N/A</li>
+          )}
+        </ol>
+      </Typography>
+      <Typography variant="body2">
+        <strong>Category:</strong> {selectedRecipe.category}
+      </Typography>
+    </Box>
+  );
+
   const filteredRecipes = selectedCategory
     ? recipes.filter((recipe) => recipe.category === selectedCategory)
     : recipes;
@@ -111,24 +146,7 @@ const Home = () => {
       {/* Center the Container */}
       <Container style={{ ...containerStyle, margin: '0 auto' }}>
         {/* Display recipe names or full recipe details based on selection */}
-        {selectedRecipe ? (
-          <Box style={boxStyle}>
-            <Typography variant="h4" gutterBottom>
-              {selectedRecipe.name}
-            </Typography>
-            <Typography variant="body1" paragraph>
-              <strong>Ingredients:</strong> {Array.isArray(selectedRecipe.ingredients) ? selectedRecipe.ingredients.join(', ') : 'N/A'}
-            </Typography>
-            <Typography variant="body1" paragraph>
-              <strong>Procedure:</strong> {Array.isArray(selectedRecipe.procedure) ? selectedRecipe.procedure.join(', ') : 'N/A'}
-            </Typography>
-            <Typography variant="body2">
-              <strong>Category:</strong> {selectedRecipe.category}
-            </Typography>
-          </Box>
-        ) : (
-          filteredRecipes.map(renderRecipeName)
-        )}
+        {selectedRecipe ? renderFullRecipe() : filteredRecipes.map(renderRecipeName)}
       </Container>
     </div>
   );
