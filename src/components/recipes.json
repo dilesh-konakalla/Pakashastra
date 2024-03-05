@@ -135,7 +135,8 @@
       "Cook until the dosa turns golden brown. Serve hot with chutney and sambar."
     ],
     "category": "Breakfast Recipes"
-  },{
+  },
+  {
     "name": "Naan",
     "ingredients": [
       "2 cups all-purpose flour",
@@ -233,7 +234,8 @@
       "Serve hot."
     ],
     "category": "Bread Recipes"
-  },{
+  },
+  {
     "name": "Paneer Tikka",
     "ingredients": [
       "250g paneer, cut into cubes",
@@ -357,7 +359,8 @@
       "Cover and cook until the vegetables are tender. Add garam masala and chopped cilantro before serving."
     ],
     "category": "Dinner Recipes"
-  }, {
+  },
+  {
     "name": "Modak",
     "ingredients": [
       "2 cups rice flour",
@@ -418,7 +421,8 @@
       "Simmer for a few minutes until the flavors blend. Serve hot."
     ],
     "category": "Festivals"
-  },{
+  },
+  {
     "name": "Sprouts Salad",
     "ingredients": [
       "1 cup mixed sprouts",
@@ -570,7 +574,8 @@
       "Serve hot. Enjoy the delicious veggie pasta!"
     ],
     "category": "Kids Recipes"
-  },{
+  },
+  {
     "name": "Vegetable Biryani",
     "ingredients": [
       "1 cup basmati rice",
@@ -644,7 +649,8 @@
       "Serve chilled. Enjoy the cool and creamy curd rice!"
     ],
     "category": "Rice Recipes"
-  },{
+  },
+  {
     "name": "Samosa",
     "ingredients": [
       "2 cups boiled and mashed potatoes",
@@ -714,7 +720,8 @@
       "Garnish with fresh coriander leaves and cut into squares. Serve and enjoy the spongy dhokla!"
     ],
     "category": "Snacks Recipes"
-  },{
+  },
+  {
     "name": "Gajar Halwa",
     "ingredients": [
       "4 cups grated carrots",
@@ -787,7 +794,21 @@
       "Serve hot with puris or rotis. Enjoy the flavorful undhiyu!"
     ],
     "category": "Winter Recipes"
+  },
+  {
+    "name": "pani puri ",
+    "ingredients": [
+      "pani puri ",
+      "pani puri ",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "procedure": [
+      "pani puri "
+    ],
+    "category": "Snacks Recipes"
   }
-
-  
 ]
